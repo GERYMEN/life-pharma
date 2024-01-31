@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mohammedsiraj97.life"
     },
     "android": {
       "adaptiveIcon": {
@@ -37,6 +38,16 @@
     },
     "updates": {
       "url": "https://u.expo.dev/8bcf9e0b-8711-4409-9856-3041482f537a"
-    }
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/Inter-Black.otf"
+          ]
+        }
+      ]
+    ]
   }
 }

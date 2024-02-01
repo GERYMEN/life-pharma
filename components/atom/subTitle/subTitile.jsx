@@ -5,17 +5,17 @@ import {
   } from "react-native";
   
   
-  export const SubTitle = ({title}) => {
+  export const SubTitle = ({title,style}) => {
    
     return (
-      <View style={[styles.card, styles.elevation]}>
+      <View style={[styles.card, styles.elevation,{...style}]}>
         <Text style={styles.SubTitle}>{title}</Text>
       </View>
     );
   };
   const styles = StyleSheet.create({
     SubTitle: {
-      fontFamily: "Poppins-Regular",
+      fontFamily: "Poppins-Medium",
       fontSize: 14,
       fontStyle: "normal",
       fontWeight: "500",

@@ -1,41 +1,52 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Touchable } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { IconButton } from "react-native-paper";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { gray, primaryColor, productPrimary } from "../../../assets/style";
+import { primaryColor, productPrimary,thirdarycolor } from "../../../assets/style";
 import { imagesdir } from "../../../assets/image";
-export const OfferProduct = ({ id, name, img }) => {
+import { TouchableOpacity } from "react-native-gesture-handler";
+export const SpecialProdct = ({ id, name, img, price, weight }) => {
+  const navigation=useNavigation()
   return (
-    <View
-      style={[styles.Productcard, { backgroundColor: productPrimary }]}
+    <TouchableOpacity
+      style={[styles.Productcard, { backgroundColor: id%2===0?thirdarycolor:productPrimary }]}
       key={id}
+    onPress={() => navigation.navigate("ProductDetails")}
     >
       <View style={{paddingHorizontal:5}}>
-        <Text style={styles.Productoffer}>Up to <Text style={styles.offerText}>30% off</Text></Text>
-        
+        <Text style={styles.ProductTitle}>{name}</Text>
+        <Text style={styles.ProductSubTitle}>{weight}</Text>
+        <Text style={styles.ProductPrice}>{price}</Text>
       </View>
       <View style={{flex:1,flexDirection:"row",alignItems:"center"}}>
-      <Image source={imagesdir.product_medicine1} style={styles.productImg} resizeMode="contain" />
-      <Text style={styles.ProductTitle}>{name}</Text>
+      <IconButton
+        icon={() => <Ionicons name="add" size={24} color={primaryColor} />}
+        style={styles.add}
+        size={24}
+        iconColor={primaryColor}
+        containerColor="#fff"
+        mode="outlined"
+      />
+      <Image source={img} style={styles.productImg} resizeMode="contain" />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   Productcard: {
-    borderRadius: 20,
-    height: 170,
+    borderRadius: 30,
+    // flex: 1,
+    height: 132,
     width: 155,
     padding: 10,
     margin:10,
-    borderWidth:1,
-    borderColor:gray,
     justifyContent: "space-between",
     overflow:"hidden"
   },
   add: { borderColor: primaryColor, borderWidth: 1, borderRadius: 10 },
   ProductTitle: {
-    fontFamily: "Poppins-Bold",
+    fontFamily: "Poppins-Medium",
     fontSize: 12,
     lineHeight: 18,
     fontWeight: "500",
@@ -46,10 +57,9 @@ const styles = StyleSheet.create({
     lineHeight: 15,
   },
   ProductPrice: {
-    fontFamily: "Poppins-Bold",
+    fontFamily: "Poppins-SemiBold",
     fontSize: 12,
     lineHeight: 18,
-    fontWeight: "600",
   },
   productImg:{
     right:5,

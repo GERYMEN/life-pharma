@@ -62,7 +62,7 @@ function Main() {
   const Stack = createStackNavigator();
   useFonts({
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
-    "`Poppins-Bold`": require("./assets/fonts/Poppins-Bold.ttf"),
+    "`Poppins-Bold": require("./assets/fonts/Poppins-Bold.ttf"),
     "Poppins-SemiBold": require("./assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Medium": require("./assets/fonts/Poppins-Medium.ttf"),
   });
@@ -88,7 +88,7 @@ function Main() {
           component={Tab_Navigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="ProductDetails" component={ProductDetails} />
+        <Stack.Screen name="ProductDetails" component={ProductDetails}  screenOptions={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

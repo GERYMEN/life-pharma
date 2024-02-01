@@ -103,7 +103,7 @@ export const TopCategories = () => {
         // scrollInterpolator={scrollInterpolator}
         // slideInterpolatedStyle={animatedStyles}
       />
-      <Pagination dotsLength={3} dotColor={gray} activeDotIndex={index/3} containerStyle={{ paddingVertical: 10 }} />
+      <Pagination dotsLength={3} dotColor={gray} activeDotIndex={index/3} containerStyle={{ paddingVertical: 10 }} dotStyle={{ width: 10, height: 10,borderRadius: 5,backgroundColor:gray }} />
     </View>
   );
 };
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   TopCategories: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: "Poppins-Medium",
     fontSize: 14,
     fontStyle: "normal",
     fontWeight: "500",
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   TopCategorieslabel: {
-    fontFamily: "Poppins-Regular",
+    fontFamily: "Poppins-Medium",
     fontSize: 10,
     fontStyle: "normal",
     fontWeight: "500",

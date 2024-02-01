@@ -10,7 +10,7 @@ export const TopCategoriesCapsule = ({id,name,img}) => {
 }
 const styles = StyleSheet.create({
     TopCategories: {
-        fontFamily: "Poppins-Regular",
+        fontFamily: "Poppins-Medium",
         fontSize: 14,
         fontStyle: "normal",
         fontWeight: "500",
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",},
       TopCategorieslabel: {
-        fontFamily: "Poppins-Regular",
+        fontFamily: "Poppins-Medium",
         fontSize: 10,
         fontStyle: "normal",
         fontWeight: "500",

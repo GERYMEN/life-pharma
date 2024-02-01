@@ -1,5 +1,5 @@
 import { ScrollView, StyleSheet, Text, View, Image,Platform } from "react-native";
-import { Button, IconButton,Searchbar } from "react-native-paper";
+import { Badge, Button, IconButton,Searchbar } from "react-native-paper";
 import { useEffect,useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Octicons } from "react-native-vector-icons";
@@ -10,6 +10,9 @@ import { imagesdir } from "../../assets/image";
 import { Home_Banner } from "../../components/molecules/banner/homeBanner";
 import { TopCategories } from "../../components/molecules/topCategories/topCategories";
 import { SpecialDeal } from "../../components/molecules/special Deal/specialDeal";
+import { OfferDeal } from "../../components/molecules/offerDeal/offerDeal";
+import { badgeColor } from "../../assets/style";
+import { PremiumProduct } from "../../components/molecules/premiumProduct/premiumProduct";
 export default function Home({ navigation }) {
   useEffect(() => {
     console.log("useEffect in homepage");
@@ -17,7 +20,8 @@ export default function Home({ navigation }) {
  
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
+    <View style={styles.container}>
       <StatusBar style="auto" />
       <View style={styles.homeHeader}>
         <View style={{ flex: 1, flexDirection: "row", alignItems: "center" }}>
@@ -38,22 +42,32 @@ export default function Home({ navigation }) {
 
         {/* icon button shadow need to seettled */}
         <IconButton
-        mode=""
+        mode="outlined"
         // 'outlined' | 'contained' | 'contained-tonal';
           icon={() => (
+            <View>
+              <Badge style={{position:"absolute",top:-8,left:-8,backgroundColor:badgeColor,}} size={17}><Text>3</Text></Badge>
             <Image
               source={imagesdir.shopping_bag}
-            />
+            /></View>
           )}
           size={24}
           style={styles.primaryButton}
         />
+        
       </View>
     
       <SearchBarInput/>
       <Home_Banner/> 
       <TopCategories /> 
       <SpecialDeal/>
+
+      
+    </View>
+    <OfferDeal/>
+    <View style={styles.container}>
+      <PremiumProduct/>
+    </View>
     </ScrollView>
   );
 }
@@ -80,14 +94,14 @@ const styles = StyleSheet.create({
   },
   header_delivery_address: {
     fontWeight: "400",
-    fontFamily: "Poppins",
+    fontFamily: "Poppins-Regular",
     fontSize: 12,
     textAlign: "left",
     lineHeight: 18,
   },
   header_delivery_location: {
-    fontWeight: "bold",
-    fontFamily: "Poppins",
+    fontWeight: "700",
+    fontFamily: "Poppins-Bold",
     fontSize: 14,
     lineHeight: 21,
   },

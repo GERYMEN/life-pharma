@@ -42,8 +42,8 @@ export const Home_Banner = () => {
 const styles = StyleSheet.create({
   heading: {
     fontSize: 18,
-    fontWeight: "600",
     marginBottom: 13,
+    fontFamily:"Poppins-SemiBold"
   },
   card: {
     backgroundColor: "white",
